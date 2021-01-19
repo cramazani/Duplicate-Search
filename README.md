@@ -42,3 +42,4 @@ The SearchDuplicates function return a list depending on the condition_set param
     
  ## Workflow Image
  
+<img width="925" alt="Screen Shot 2021-01-19 at 2 32 10 PM" src="https://user-images.githubusercontent.com/72724703/105083710-4a50bf00-5a63-11eb-8e7e-e65c9f7548bc.png">
