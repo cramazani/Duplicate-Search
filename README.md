@@ -33,5 +33,12 @@ The first line of conditions are correlation coefficient and RT conditions. Pote
             i. Condition set 1  : $ppm=\frac{(|mass1-mass2|)*1,000,000} {mass1} <= ppm_cutoff$
             ii. Condition set 2 : $ppm=\frac{(|mass_difference-mass_adduct|)*1,000,000} {mass_adduct} <= ppm_cutoff$
             iii. Condition set 3: $ppm=\frac{(|mass1_difference-(mass_adduct*k)|)*1,000,000} {(mass_adduct*k)} <= ppm_cutoff: n(>1)\ represents\ number\ of\ molecules\ of\ RUs.$
-
-            
+ 
+ ## Return
+The SearchDuplicates function return a list depending on the condition_set paramater:
+    - if 1: the function return a list of one data frame containing pairs that passed condition set 1
+    - if 2: the function return a list of two data frames containing pairs that passed condition set 1 and condition set 2
+    - if 3: the function return a list of three data frames containing pairs that passed condition set 1, 2, and 3.
+    
+ ## Workflow Image
+ 
