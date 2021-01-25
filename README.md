@@ -22,6 +22,7 @@ The first line of conditions are correlation coefficient and RT conditions and t
             iii. Condition set 3: $ppm=\frac{(|mass1_difference-(mass_adduct*k)|)*1,000,000} {(mass_adduct*k)} <= ppm_cutoff: n(>1)\ represents\ number\ of\ molecules\ of\ RUs.$
             
 ## Parameters for the function
+
   - hilic          = the data frame containing the HILIC data. Make sure the samples are in columns and the metabolites in rows. 
   - metadata       = more informations about the metabolites in the hilic data frame. This data frame must have four columns with the following names:
         - first column  : the metabolites or peak ID. Name of first column: "peak".
@@ -32,21 +33,21 @@ The first line of conditions are correlation coefficient and RT conditions and t
    - rt_cutoff     = the retention time (RT) cutoff for potential duplicates. Set by default at 0.2.
    - ppm_cutoff    = the ppm cutoff for potential duplicates. Set by default at 15. The ppm cutoff depends on the condition_set described above. 
    - Artifact      = data frame with adduct or repeating unit(RU) information. By default, this data frame will consist of a list of common repeating units from by Keller et al.(2008). However, the user can input their own data frame of artifacts making sure it has the three following columns with the corresponding names:
-        - first column  : ID of RU or adduct 
-        - second column : mass of the RU or adduct
-        - third column  : ionization mode at which the RU or adduct was collected
+        - first column  : ID of RU, adduct, or contaminant. First column name: "ID".
+        - second column : mass of the RU, adduct, or contaminant. Second column name: "mass".
+        - third column  : ionization mode at which the RU, adduct, or contaminant was collected. Third column name: "mode".
    - nominal        = logical value. If TRUE, this means that peak masses are neutral. FALSE, otherwise.
    - condition_sets = 1, 2, or 3. 
-        - if 1: condition set 1 only is performed. 
+        - if 1: only condition set 1 is performed. 
         - if 2: condition sets 1 and 2 are performed. 
         - if 3: condition sets 1, 2, and 3 are performed.
  
  ## Return
  
 The SearchDuplicates function return a list depending on the condition_set paramater:
-    - if 1: the function return a list of one data frame containing pairs that passed condition set 1
-    - if 2: the function return a list of two data frames containing pairs that passed condition set 1 and condition set 2
-    - if 3: the function return a list of three data frames containing pairs that passed condition set 1, 2, and 3.
+      - if 1: the function return a list of one data frame containing pairs that passed condition set 1.
+      - if 2: the function return a list of two data frames containing pairs that passed condition set 1 and condition set 2 with artificats selected to the latter condition.
+      - if 3: the function return a list of three data frames containing pairs that passed condition set 1, 2, and 3 with artifacts selected for conditions 2 and 3.
     
 ## Reference
 
