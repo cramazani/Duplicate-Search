@@ -12,8 +12,8 @@ This work is an attempt at a reproducible framework to identify potential metabo
 In order to extract potential duplicate pairs and those related to specific HILIC articfacts, we will apply a set of condition to our data. 
 The first line of conditions are correlation coefficient and RT conditions and these are employed in all 3 sets of conditions. Potential duplicate pairs must have:
       
-      a. $correlation\ coefficient > 0.90$
-      b. $RT\ difference < 0.2$
+      a. $correlation\ coefficient > corr_cutoff$
+      b. $RT\ difference < rt_cutoff$
       c. Then, 3 sets of conditions are separately applied to the duplicate pairs data. In the following, these sets are applied:
             i. Condition set 1  : $ppm=\frac{(|mass1-mass2|)*1,000,000} {mass1} <= ppm_cutoff$
             ii. Condition set 2 : $ppm=\frac{(|mass_difference-mass_adduct|)*1,000,000} {mass_adduct} <= ppm_cutoff$
