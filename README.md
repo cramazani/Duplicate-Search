@@ -51,6 +51,7 @@ The SearchDuplicates function return a list depending on the condition_set param
 ## Reference
 
 - The paper related to the list of common contaminants, adducts, and repeating units mentionned in the parameter section. The complete list of common contaminants, adducts, and repeating units can be found in the main page. 
-Keller BO, Sui J, Young AB, Whittal RM. Interferences and contaminants encountered in modern mass spectromectry. Analytical Chimica Acta. 2008 Oct 3; 71 - 81. 
+
+     Keller BO, Sui J, Young AB, Whittal RM. Interferences and contaminants encountered in modern mass spectromectry. Analytical Chimica Acta. 2008 Oct 3; 71 - 81. 
 
 
