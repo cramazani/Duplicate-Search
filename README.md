@@ -36,7 +36,7 @@ The first line of conditions are correlation coefficient and RT conditions and t
    - corr_cutoff   = the correlation coefficient cutoff for potential duplicates. Set by default at 0.9.
    - rt_cutoff     = the retention time (RT) cutoff for potential duplicates. Set by default at 0.2.
    - ppm_cutoff    = the ppm cutoff for potential duplicates. Set by default at 15. The ppm cutoff depends on the condition_set described above. 
-   - artifact      = data frame with adduct or repeating unit(RU) information. By default, this data frame will consist of a list of common repeating units from by Keller et al.(2008). However, the user can input their own data frame of artifacts making sure it has the three following columns with the corresponding names:
+   - artifacts      = data frame with adduct or repeating unit(RU) information. By default, this data frame will consist of a list of common repeating units from by Keller et al.(2008). However, the user can input their own data frame of artifacts making sure it has the three following columns with the corresponding names:
         - first column  : ID of RU, adduct, or contaminant. First column name: "ID".
         - second column : mass of the RU, adduct, or contaminant. Second column name: "mass".
         - third column  : ionization mode at which the RU, adduct, or contaminant was collected. Third column name: "mode".
