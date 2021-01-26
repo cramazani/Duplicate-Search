@@ -14,13 +14,17 @@ This work is an attempt at a reproducible framework to identify potential metabo
 In order to extract potential duplicate pairs and those related to specific HILIC articfacts, we will apply a set of condition to our data. 
 The first line of conditions are correlation coefficient and RT conditions and these are performed in all 3 sets of conditions. Potential duplicate pairs must have:
       
-      a. $correlation\ coefficient > corr_cutoff$
-      b. $RT\ difference < rt_cutoff$
+      a. $correlation\ coefficient > corr_cutoff$ (performed no matter the condition set)
+      b. $RT\ difference < rt_cutoff$ (performed no matter the condition set)
       c. Then, 3 sets of conditions are separately applied to the duplicate pairs data. In the following, these sets are applied:
             i. Condition set 1  : $ppm=\frac{(|mass1-mass2|)*1,000,000} {mass1} <= ppm_cutoff$
             ii. Condition set 2 : $ppm=\frac{(|mass_difference-mass_adduct|)*1,000,000} {mass_adduct} <= ppm_cutoff$
             iii. Condition set 3: $ppm=\frac{(|mass1_difference-(mass_adduct*k)|)*1,000,000} {(mass_adduct*k)} <= ppm_cutoff: n(>1)\ represents\ number\ of\ molecules\ of\ RUs.$
-            
+ 
+   - Condition set 1 removes pairs of features that have a ppm difference within the cutoff. If the feature masses are neutral (i.e. independent of the ESI mode), ESI mode similarity is not required. 
+   - Condition set 2 removes pairs of features whose mass difference is within a ppm cutoff of one unit (molecule) of contaminant, adduct, or repeating unit. ESI mode similarity is always required in this condition set because contaminant, adduct, or repeating unit data are specific to ESi modes.
+   - Condition set 3 removes pairs of features whose mass difference is within a ppm cutoff of two or more units (molecules) of contaminants, adducts, or repeating units. ESI mode similarity is always required in this condition set because contaminant, adduct, or repeating unit data are specific to ESi modes.
+ 
 ## Parameters for the function
 
   - hilic          = the data frame containing the HILIC data. Make sure the samples are in columns and the metabolites in rows. 
@@ -36,7 +40,7 @@ The first line of conditions are correlation coefficient and RT conditions and t
         - first column  : ID of RU, adduct, or contaminant. First column name: "ID".
         - second column : mass of the RU, adduct, or contaminant. Second column name: "mass".
         - third column  : ionization mode at which the RU, adduct, or contaminant was collected. Third column name: "mode".
-   - nominal        = logical value. If TRUE, this means that peak masses are neutral. FALSE, otherwise.
+   - neutral        = logical value. If TRUE, this means that peak masses are neutral. FALSE, otherwise.
    - condition_sets = 1, 2, or 3. 
         - if 1: only condition set 1 is performed. 
         - if 2: condition sets 1 and 2 are performed. 
