@@ -12,14 +12,14 @@ This work is an attempt at a reproducible framework to identify potential metabo
 <img width="925" alt="Screen Shot 2021-01-19 at 2 32 10 PM" src="https://user-images.githubusercontent.com/72724703/105083710-4a50bf00-5a63-11eb-8e7e-e65c9f7548bc.png">
 
 In order to extract potential duplicate pairs and those related to specific HILIC articfacts, we will apply a set of condition to our data. 
-The first line of conditions are correlation coefficient and RT conditions and these are performed in all 3 sets of conditions. Potential duplicate pairs must have:
+The first line of conditions are correlation coefficient and RT conditions and these are performed in all 3 sets of conditions. Assuming the artifact is an adduct, potential duplicate pairs must have:
       
       a. $correlation\ coefficient > corr_cutoff$ (performed no matter the condition set)
       b. $RT\ difference < rt_cutoff$ (performed no matter the condition set)
       c. Then, 3 sets of conditions are separately applied to the duplicate pairs data. In the following, these sets are applied:
-            i. Condition set 1  : $ppm=\frac{(|mass1-mass2|)*1,000,000} {mass1} <= ppm_cutoff$
-            ii. Condition set 2 : $ppm=\frac{(|mass_difference-mass_adduct|)*1,000,000} {mass_adduct} <= ppm_cutoff$
-            iii. Condition set 3: $ppm=\frac{(|mass1_difference-(mass_adduct*k)|)*1,000,000} {(mass_adduct*k)} <= ppm_cutoff: n(>1)\ represents\ number\ of\ molecules\ of\ RUs.$
+            i. Condition set 1  : $ppm=\frac{(|mass_peak1 - mass_peak2|)*1,000,000} {mass_peak1} <= ppm_cutoff$
+            ii. Condition set 2 : $ppm=\frac{(|mass_difference - mass_adduct|)*1,000,000} {mass_adduct} <= ppm_cutoff$
+            iii. Condition set 3: $ppm=\frac{(|mass_difference-(mass_adduct*k)|)*1,000,000} {(mass_adduct*k)} <= ppm_cutoff: n(>1)\ represents\ number\ of\ units\ (molecules)\ of\ adducts.$
  
    - Condition set 1 removes pairs of features that have a ppm difference within the cutoff. If the feature masses are neutral (i.e. independent of the ESI mode), ESI mode similarity is not required. 
    - Condition set 2 removes pairs of features whose mass difference is within a ppm cutoff of one unit (molecule) of contaminant, adduct, or repeating unit. ESI mode similarity is always required in this condition set because contaminant, adduct, or repeating unit data are specific to ESi modes.
