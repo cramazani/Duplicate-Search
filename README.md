@@ -49,9 +49,9 @@ The first line of conditions are correlation coefficient and RT conditions and t
  ## Return
  
 The SearchDuplicates function return a list depending on the condition_set paramater:
-      - if 1: the function return a list of one data frame containing pairs that passed condition set 1.
-      - if 2: the function return a list of two data frames containing pairs that passed condition set 1 and condition set 2 with artificats selected to the latter condition.
-      - if 3: the function return a list of three data frames containing pairs that passed condition set 1, 2, and 3 with artifacts selected for conditions 2 and 3.
+      - if 1: the function return a list of two data frame containing pairs that passed condition set 1, and the residual/remaining pairs (i.e. those that didn't pass the condition set 1 cutoff but passed the correlation and RT cutoffs).
+      - if 2: the function return a list of three data frames containing pairs that passed condition set 1, condition set 2 with artificats selected to the latter condition, and the residual/remaining pairs (i.e. those that didn't pass the condition set 1 and 2 cutoffs but passed the correlation and RT cutoffs).
+      - if 3: the function return a list of four data frames containing pairs that passed condition set 1, 2, 3 with artifacts selected for conditions 2 and 3, and the residual/remaining pairs (i.e. those that didn't pass the condition set 1, 2, and 3 cutoffs but passed the correlation and RT cutoffs).
     
 ## Reference
 
