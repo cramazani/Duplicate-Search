@@ -28,7 +28,7 @@ The first line of conditions are correlation coefficient and RT conditions and t
 ## Parameters for the function
 
   - hilic          = the data frame containing the HILIC data. Make sure the samples are in columns and the metabolites in rows. 
-  - metadata       = more informations about the metabolites in the hilic data frame. This data frame must have four columns with the following names:
+  - metadata       = more informations about the features/peaks in the hilic data frame. This data frame must have four columns with the following names:
         - first column  : the metabolites or peak ID. Name of first column: "peak".
         - second column : the mass of the peak. Name of second column: "mass".
         - third column  : retention time (RT) of the peak. Name of third column: "RT".
