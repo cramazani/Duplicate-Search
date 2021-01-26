@@ -3,7 +3,7 @@ A framework to search potential duplicates of metabolomics data and other HILIC 
 
 ## Description
 
-Hydrophilic Interaction Liquid Chromatography (HILIC) data are collected with information about feature mass and retention time (RT). However, it is not always obvious how to select which features are potential duplicates of each other, or those to which artifacts (e.g. salts) were added throughout the HILIC  process. 
+Hydrophilic Interaction Liquid Chromatography (HILIC) data are collected with information about feature mass and retention time (RT). However, it is not always obvious how to select which features are potential duplicates of each other and peaks that represent non-biological artifacts (e.g. salts) originating from the HILIC  analysis. 
 
 This work is an attempt at a reproducible framework to identify potential metabolite duplicates and HILIC artifacts. The workflow of this particular quest consists of 3 sets of conditions (See section below).            
 
@@ -24,6 +24,8 @@ The first line of conditions are correlation coefficient and RT conditions and t
    - Condition set 1 removes pairs of features that have a ppm difference within the cutoff. If the feature masses are neutral (i.e. independent of the ESI mode), ESI mode similarity is not required. 
    - Condition set 2 removes pairs of features whose mass difference is within a ppm cutoff of one unit (molecule) of contaminant, adduct, or repeating unit. ESI mode similarity is always required in this condition set because contaminant, adduct, or repeating unit data are specific to ESi modes.
    - Condition set 3 removes pairs of features whose mass difference is within a ppm cutoff of two or more units (molecules) of contaminants, adducts, or repeating units. ESI mode similarity is always required in this condition set because contaminant, adduct, or repeating unit data are specific to ESi modes.
+ 
+ In other words, condition set 1 extracts pairs that are highly correlated and have very similar masses and RTs. These pairs from condition set 1 are potential duplicates. Condition sets 2 and 3, on the other hand, extract pairs that might be non-biological salts that originited from sample analysis. 
  
 ## Parameters for the function
 
